@@ -1,4 +1,4 @@
-# [gulp](https://github.com/wearefractal/gulp)-clean
+# [gulp](https://github.com/wearefractal/gulp)-clean-old
 
 > Removes files and folders.
 
