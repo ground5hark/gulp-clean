@@ -1,60 +1,58 @@
-# [gulp](https://github.com/wearefractal/gulp)-clean [![Build Status](https://secure.travis-ci.org/peter-vilja/gulp-clean.png?branch=master)](https://travis-ci.org/peter-vilja/gulp-clean) [![NPM version](https://badge.fury.io/js/gulp-clean.png)](http://badge.fury.io/js/gulp-clean)
+# [gulp](https://github.com/wearefractal/gulp)-clean
 
 > Removes files and folders.
 
+## Information
+
+<table>
+<tr> 
+<td>Package</td><td>gulp-clean-old</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>This is a fork of the original <a href="https://github.com/peter-vilja/gulp-clean">gulp-clean</a>, compatible with older versions of node</td>
+</tr>
+<tr>
+<td>Node Version</td>
+<td>>= 0.8</td>
+</tr>
+</table>
+
 ## Install
 
-Install with [npm](https://npmjs.org/package/gulp-clean).
+Install with [npm](https://npmjs.org/package/gulp-clean-old).
 
 ```
-npm install --save-dev gulp-clean
+npm install --save-dev gulp-clean-old
 ```
 
-## Examples
+## Example
 
 ```js
 var gulp = require('gulp');
-var clean = require('gulp-clean');
+var clean = require('gulp-clean-old');
 
-gulp.task('default', function () {
+gulp.task('default', function() {
 	gulp.src('app/tmp', {read: false})
 		.pipe(clean());
 });
 ```
-Option read false prevents gulp to read the contents of the file and makes this task a lot faster. If you need the file and it's contents after cleaning in the same stream, do not set the read option to false.
+Option read false prevents gulp to read the contents of the file and makes this task a lot faster.
+
+After using gulp-clean-old the stream still contains the app/tmp and it can be used i.e. for moving the content to different location.
 
 ```js
 var gulp = require('gulp');
-var clean = require('gulp-clean');
+var clean = require('gulp-clean-old');
 
-gulp.task('default', function () {
-	gulp.src('app/tmp/index.js')
-		.pipe(clean({force: true}))
+gulp.task('default', function() {
+	gulp.src('app/tmp/index.js', {read: false})
+		.pipe(clean({force: true}));
 		.pipe(gulp.dest('dist'));
 });
 ```
 
-##### For safety files and folders outside the current working directory can be removed only with option force set to true.
-
-Clean as a dependency:
-
-```js
-var gulp = require('gulp');
-var clean = require('gulp-clean');
-
-gulp.task('clean-scripts', function () {
-  return gulp.src('app/tmp/*.js', {read: false})
-    .pipe(clean());
-});
-
-gulp.task('scripts', ['clean-scripts'], function () {
-  gulp.src('app/scripts/*.js')
-    .pipe(gulp.dest('app/tmp'));
-});
-
-gulp.task('default', ['scripts']);
-```
-
+#### For safety files and folders outside the current working directory can be removed only with option force set to true.
 
 ## License
 
