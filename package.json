@@ -1,6 +1,6 @@
 {
   "name": "gulp-clean-old",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A gulp plugin for removing files and folders.",
   "keywords": [
     "gulpplugin",
